@@ -19,9 +19,9 @@ pub fn App() -> impl IntoView {
 
         // sets the document title
         <Title text="Read Chinese Online"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link
+        <Link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <Link
             href="https://fonts.googleapis.com/css2?\
                 family=Noto+Sans+SC:wght@300&\
                 family=Noto+Serif+SC&\
@@ -29,6 +29,12 @@ pub fn App() -> impl IntoView {
                 display=swap"
             rel="stylesheet"
         />
+        <Script
+            async_="true"
+            src=
+            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8916484374042121"
+            crossorigin="anonymous"
+        ></Script>
 
         // content for this welcome page
         <Router fallback=|| {

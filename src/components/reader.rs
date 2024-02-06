@@ -30,7 +30,7 @@ pub fn Reader(
                         })
                         .collect_view()
                     )
-                    .unwrap_or(Default::default())
+                    .unwrap_or_default()
                 )
             }
         </div>

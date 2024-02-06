@@ -16,11 +16,10 @@ pub fn Input(
     view! {
         <div class="flex flex-row lg:w-[80rem] w-screen m-0 p-1">
             <label
-                class=move || format!(
+                class=move ||
                     "flex items-center justify-center m-1 lg:w-80 w-20 lg:h-16 h-12 \
                     cursor-pointer lg:text-xl text-xs text-center rounded hover:bg-sky-50 \
-                    border-slate-300 border-b-4 border-l-2 shadow-lg bg-slate-200",
-                )
+                    border-slate-300 border-b-4 border-l-2 shadow-lg bg-slate-200"
             >
                 <input
                     class="hidden"
@@ -52,10 +51,8 @@ pub fn Input(
                                 if let Some(pages) = pages {
                                     set_index(0);
                                     set_pages(pages);
-                                } else {
-                                    if let Err(e) = window().alert_with_message("Failed to load file") {
-                                        logging::log!("{:?}", e);
-                                    }
+                                } else if let Err(e) = window().alert_with_message("Failed to load file") {
+                                    logging::log!("{:?}", e);
                                 }
                             });
 
@@ -74,11 +71,10 @@ pub fn Input(
                 }
             />
             <button
-                class=move || format!(
+                class=move ||
                     "flex items-center justify-center m-1 lg:w-40 w-20 lg:h-16 h-12 \
                     cursor-pointer lg:text-xl text-md rounded hover:bg-sky-50 \
-                    border-slate-300 border-b-4 border-l-2 shadow-lg bg-slate-200",
-                )
+                    border-slate-300 border-b-4 border-l-2 shadow-lg bg-slate-200"
                 on:click=move |_| {
                     let pages = text.with(|t| segment(t, settings().words_page));
                     set_index(0);

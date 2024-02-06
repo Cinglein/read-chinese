@@ -7,14 +7,11 @@ pub fn Page(
     page_count: Memo<usize>,
 ) -> impl IntoView {
     let left = move || {
-        set_index(index().checked_sub(1).unwrap_or(0));
+        set_index(index().saturating_sub(1));
         window().scroll_with_x_and_y(0.0, 0.0);
     };
     let right = move || {
-        set_index(usize::min(
-            page_count().checked_sub(1).unwrap_or(0),
-            index() + 1,
-        ));
+        set_index(usize::min(page_count().saturating_sub(1), index() + 1));
         window().scroll_with_x_and_y(0.0, 0.0);
     };
     let handle = window_event_listener(ev::keydown, move |ev| {

@@ -39,11 +39,11 @@ impl Props {
         if let Some(reading) = &self.reading {
             let def = reading.def.clone();
             let reading = reading.reading.clone();
-            let spacedrep = self.spacedrep.clone();
+            let spacedrep = self.spacedrep;
             view! {
                 <div class="m-2 lg:h-24 h-14">
                     <Show
-                        when=move || is_clicked()
+                        when=is_clicked
                     >
                         <div
                             on:click=move |_| on_click(false)

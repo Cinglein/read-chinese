@@ -201,6 +201,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "35636a1494ede3b646cc98f74f8e62c773a38a659ebc777a2cf26b9b74171df9"
 
 [[package]]
+name = "bincode"
+version = "1.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b1f45e9417d87227c7a56d22e471c6206462cba514c7590c09aff4cf6d1ddcad"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "bitflags"
 version = "1.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -317,6 +326,41 @@ name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
+
+[[package]]
+name = "character_converter"
+version = "2.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f399d4f1a0caebb329b79ea33c81afd6073e603de2589878a0770a9cef837797"
+dependencies = [
+ "bincode",
+ "fst",
+ "once_cell",
+]
+
+[[package]]
+name = "chinese_detection"
+version = "2.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4590788f3cbdc260f004a3c00d48bbed94f205f0c895e81b3df21ad8ecfb4cd4"
+dependencies = [
+ "bincode",
+ "once_cell",
+]
+
+[[package]]
+name = "chinese_dictionary"
+version = "2.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e021de95fd9e943510d234421576a0cb1b3f83718c03b63f953a43bae577556b"
+dependencies = [
+ "bincode",
+ "character_converter",
+ "chinese_detection",
+ "once_cell",
+ "serde",
+ "serde_derive",
+]
 
 [[package]]
 name = "ciborium"
@@ -590,6 +634,12 @@ checksum = "e13624c2627564efccf4934284bdd98cbaa14e79b0b5a141218e507b3a823456"
 dependencies = [
  "percent-encoding",
 ]
+
+[[package]]
+name = "fst"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ab85b9b05e3978cc9a9cf8fea7f01b494e1a09ed3037e16ba39edc7a29eb61a"
 
 [[package]]
 name = "funty"
@@ -1787,6 +1837,7 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "cfg-if",
+ "chinese_dictionary",
  "console_error_panic_hook",
  "console_log",
  "epub",
